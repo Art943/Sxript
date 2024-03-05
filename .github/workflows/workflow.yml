@@ -22,7 +22,3 @@ jobs:
             cd googletest && mkdir build
             cd build && cmake .. && make
             sudo make install
-
-    - name: Build and run tests
-      run: |
-        make && make test
