@@ -1,0 +1,24 @@
+name: CI
+
+on:
+  push:
+    branches-ignore:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+    - name: Install
+      run: |
+            sudo apt-get install build-essential cmake
+            git clone https://github.com/google/googletest
+            cd googletest && mkdir build
+            cd build && cmake .. && make
+            sudo make install
