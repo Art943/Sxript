@@ -1,4 +1,4 @@
-def print_signals(data):
+def generate_signals_txt(data):
     with open('../lib/signals/signals.txt', 'w') as file:
         file.write(f"{'Signal':<35} | {'Type':<10} | {'Range/Values':<20} | {'Description'}\n")
         file.write('-' * 100 + '\n')
