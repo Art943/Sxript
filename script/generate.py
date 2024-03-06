@@ -2,6 +2,8 @@ import json
 from pathlib import Path
 import shutil
 import os
+from header import generate_prototypes
+
 
 ROOT = Path(__file__).parent
 
@@ -37,3 +39,5 @@ try:
 except:
     print("Error creating directories")
     exit(1)
+
+generate_prototypes(data)
