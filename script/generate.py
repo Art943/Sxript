@@ -1,3 +1,4 @@
+
 import json
 from pathlib import Path
 import shutil
@@ -31,8 +32,8 @@ SIGNALS_DIR = Path(ROOT.parent, 'lib', 'signals')
 print(TEST_DIR)
 
 try:
-    shutil.rmtree(TEST_DIR, True)
-    shutil.rmtree(SIGNALS_DIR, True)
+   # shutil.rmtree(TEST_DIR, True)
+    # shutil.rmtree(SIGNALS_DIR, True)
     os.makedirs(TEST_DIR, exist_ok=True)
     os.makedirs(SIGNALS_DIR, exist_ok=True)
 
