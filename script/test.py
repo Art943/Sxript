@@ -3,11 +3,6 @@ def generate_test_cases(data):
         f.write('#include "signals.h" \n')
         f.write('#include <gtest/gtest.h> \n\n')
 
-        f.write("#define OFF 0\n")
-        f.write("#define ON 1\n")
-        f.write("#define ERROR 0\n")
-        f.write("#define WARNING 1\n")
-        f.write("#define OKAY 2\n\n")
 
         for signal in data['signals']:
             f.write(f"TEST(test_signal, test_{signal['name']})\n{{\n")
