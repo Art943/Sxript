@@ -6,6 +6,7 @@ import os
 from header import generate_prototypes
 from test import generate_test_cases
 from signals import generate_signal_func
+from text import generate_signals_txt
 
 ROOT = Path(__file__).parent
 
@@ -47,3 +48,4 @@ except:
 generate_prototypes(data)
 generate_test_cases(data)
 generate_signal_func(data)
+generate_signals_txt(data)
