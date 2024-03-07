@@ -12,7 +12,7 @@ ROOT = Path(__file__).parent
 
 try:
     # Opening JSON file using 'with open'
-    with open('data.json', 'r') as f:
+    with open('../script/data.json', 'r') as f:
         # returns JSON object as a dictionary
         data = json.load(f)
 
