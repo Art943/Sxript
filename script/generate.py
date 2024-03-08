@@ -21,15 +21,12 @@ except json.JSONDecodeError:
 except Exception as e:
     print(f"An unexpected error occurred: {e}")
 
-
 TEST_DIR = Path(ROOT.parent, 'test')
 SIGNALS_DIR = Path(ROOT.parent, 'lib', 'signals')
 
 print(TEST_DIR)
 
 try:
-    shutil.rmtree(TEST_DIR, True)
-    shutil.rmtree(SIGNALS_DIR, True)
     shutil.rmtree(TEST_DIR, True)
     shutil.rmtree(SIGNALS_DIR, True)
     os.makedirs(TEST_DIR, exist_ok=True)
