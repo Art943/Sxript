@@ -32,8 +32,7 @@ def generate_signal_func(data):
                 f.write(f"\tif(value & (1u << {signal['length'] - 1})){{\n")
                 f.write(f"\t\tvalue |= (~0u) << {signal['length']};\n\t}}\n")
                 if signal['type']in ['float', 'double']:
-                    f.write(f"\t{signal['type']} fvalue{{static_cast<{signal['type']}>(static_cast<int32_t>(value)) * PRECISION}};\n\n")
-                    f.write(f"\treturn fvalue;\n}}\n\n")
+                    f.write(f"\treturn (static_cast<{signal['type']}>(static_cast<int32_t>(value)) * PRECISION);\n}}\n\n")
                 else:
                     f.write(f"\treturn static_cast<{signal['type']}>(value);\n}}\n\n")
             else:
