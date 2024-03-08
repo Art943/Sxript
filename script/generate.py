@@ -11,14 +11,8 @@ from text import generate_signals_txt
 ROOT = Path(__file__).parent
 
 try:
-    # Opening JSON file using 'with open'
     with open('../script/data.json', 'r') as f:
-        # returns JSON object as a dictionary
         data = json.load(f)
-
-    # Iterating through the json list
-    for i in data['signals']:
-        print(i)
 
 except FileNotFoundError:
     print("File not found. Please check the file path.")
