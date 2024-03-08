@@ -2,12 +2,13 @@ def generate_prototypes(data):
     with open('../lib/signals/signals.h', 'w') as f:
         f.write("#ifndef SIGNALS_H\n#define SIGNALS_H\n\n")
         f.write("#include <stdint.h>\n\n")  # Include the necessary library
-        
+
         for i in data['defines']:
             num = 0
             for j in data['defines'][i]:
                 f.write(f"#define {j} {num}\n")
                 num += 1
+        f.write(f"static constexpr float PRECISION{{0.1f}}; \n")
         
         for signal in data['signals']:
             f.write(f"/**\n * @brief This function is used to set {signal['comment']}\n *\n")
