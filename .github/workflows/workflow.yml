@@ -15,17 +15,17 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Check Python version
-      run: python3 --version
     - name: Install
       run: |
+            
             sudo apt-get install build-essential cmake
             git clone https://github.com/google/googletest
             cd googletest && mkdir build
-        -  name: Build & Run
-          run: |
-                cd build && cmake ..
-                sudo make install
-                make generate
-                cmake .. && make test
-                ./test
+            cd build && cmake .. && make
+            sudo make install
+    - name: Build & Run
+      run: |
+            mkdir build && cmake ..
+            make generate && cmake ..
+            make test
+            ./test
