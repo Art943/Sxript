@@ -36,4 +36,4 @@ def generate_signal_func(data):
                 else:
                     f.write(f"\treturn static_cast<{signal['type']}>(value);\n}}\n\n")
             else:
-                f.write(f"\treturn ({signal['type']})buffer_extract(buffer, {signal['start']}, {signal['length']});\n}}\n\n")
+                f.write(f"\treturn static_cast<{signal['type']}>(buffer_extract(buffer, {signal['start']}, {signal['length']}));\n}}\n\n")
