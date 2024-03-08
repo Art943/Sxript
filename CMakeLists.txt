@@ -28,4 +28,4 @@ if(EXISTS ${CMAKE_CURRENT_SOURCE_DIR}/test/test.cpp)
     target_link_libraries(test PRIVATE gtest_main signals)
 endif()
 
-add_custom_target(generate COMMAND python3 ../script/generate.py)
+add_custom_target(generate COMMAND python3 ${CMAKE_CURRENT_SOURCE_DIR}/script/generate.py)
