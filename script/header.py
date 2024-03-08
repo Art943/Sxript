@@ -3,11 +3,11 @@ def generate_prototypes(data):
         f.write("#ifndef SIGNALS_H\n#define SIGNALS_H\n\n")
         f.write("#include <stdint.h>\n\n")  # Include the necessary library
 
-        f.write("#define OFF 0\n")
-        f.write("#define ON 1\n")
-        f.write("#define ERROR 0\n")
-        f.write("#define WARNING 1\n")
-        f.write("#define OKAY 2\n\n")
+        for i in data['defines']:
+            num = 0
+            for j in data['defines'][i]:
+                f.write(f"#define {j} {num}\n")
+                num += 1
         f.write(f"static constexpr float PRECISION{{0.1f}}; \n")
         
         for signal in data['signals']:
