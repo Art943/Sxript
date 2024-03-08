@@ -20,5 +20,6 @@ jobs:
             sudo apt-get install build-essential cmake
             git clone https://github.com/google/googletest
             cd googletest && mkdir build
-            cd build && cmake .. && make
-            sudo make install
+            cd build && cmake .. && make generate 
+            make test
+            ./test
