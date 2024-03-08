@@ -8,6 +8,7 @@ def generate_prototypes(data):
         f.write("#define ERROR 0\n")
         f.write("#define WARNING 1\n")
         f.write("#define OKAY 2\n\n")
+        f.write(f"static constexpr float PRECISION{{0.1f}}; \n")
         
         for signal in data['signals']:
             f.write(f"/**\n * @brief This function is used to set {signal['comment']}\n *\n")

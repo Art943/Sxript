@@ -11,14 +11,21 @@ def generate_test_cases(data):
             else:
                 f.write(f"\tvalue = {data['defines'][signal['values']][0]};\n")
             f.write(f"\tEXPECT_TRUE(signals_set_{signal['name']}(value));\n")
-            f.write(f"\tEXPECT_EQ(value, signals_get_{signal['name']}());\n\n")
+            if signal['type'] in ['float', 'double']:
+                f.write(f"\tEXPECT_NEAR(value, signals_get_{signal['name']}(), PRECISION);\n\n")
+            else:
+                f.write(f"\tEXPECT_EQ(value, signals_get_{signal['name']}());\n\n")
 
             if 'range' in signal:
                 f.write(f"\tvalue = {signal['range'][1]};\n")
             else:
                 f.write(f"\tvalue = {data['defines'][signal['values']][-1]};\n")
             f.write(f"\tEXPECT_TRUE(signals_set_{signal['name']}(value));\n")
-            f.write(f"\tEXPECT_EQ(value, signals_get_{signal['name']}());\n\n")
+
+            if signal['type'] in ['float', 'double']:
+                f.write(f"\tEXPECT_NEAR(value, signals_get_{signal['name']}(), PRECISION);\n\n")
+            else:
+                f.write(f"\tEXPECT_EQ(value, signals_get_{signal['name']}());\n\n")
 
             if 'range' in signal:
                 f.write(f"\tvalue = {signal['range'][1]} + 1;\n")
