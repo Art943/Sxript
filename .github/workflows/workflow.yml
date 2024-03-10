@@ -15,13 +15,9 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v4
-    - name: Install
+    - name: Install build-essential 
       run: | 
             sudo apt-get install build-essential cmake
-            git clone https://github.com/google/googletest
-            cd googletest && mkdir build
-            cd build && cmake .. && make
-            sudo make install
     - name: Build & Run
       run: |
             mkdir build && cd build && cmake ..
