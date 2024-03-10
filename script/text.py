@@ -1,5 +1,4 @@
 def generate_signals_txt(data):
-    
     signal_length = max(len(signal['name']) for signal in data['signals'])
     type_lengt = max(len(signal['type']) for signal in data['signals'])
     range_values_lenght = max(len(', '.join(data['defines'][signal['values']])) if 'values' in signal else len(str(signal['range'])) for signal in data['signals'])
